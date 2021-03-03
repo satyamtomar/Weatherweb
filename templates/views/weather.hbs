@@ -339,7 +339,7 @@ padding-right: 5%;
      {
        try
        {
-       let url=`http://api.openweathermap.org/data/2.5/weather?q=${cityval}&units=metric&appid=03114e63f3fea58492410c5b0a8165e4`;
+       let url=`https://api.openweathermap.org/data/2.5/weather?q=${cityval}&units=metric&appid=03114e63f3fea58492410c5b0a8165e4`;
      const response=  await fetch(url);
      const data= await response.json();
      const arrData=[data];
