@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+   
+  
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather report</title>
+  
+
+<style>
+    *{
+    margin:0%;
+    padding:0%;
+}
+:root
+{
+    --main-bg:#1e272e;
+    --main-color:#0097e6;
+
+}
+
+body{
+    height:100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-menu
+{
+    background-color: var(--main-bg);
+}
+.navbar li{
+    margin-left: 2rem;
+}
+.navbar a:hover
+{
+    color: var(--main-color);
+}
+.navbar a{
+    color: #fff;
+    font-size:1.3rem;
+}
+.navbar
+{
+    color:#fff;
+    background-color: var(--main-bg);
+    padding: .3rem 0;
+}
+.navbar-toggler
+{
+    background-color: grey;
+}
+.fa-snowflake
+{
+    transition: all linear;
+    animation: rot 2s linear infinite;
+    color: var(--main-color);
+}
+
+@keyframes rot{
+    0%
+    {
+         transform: rotate(0deg);
+    }
+    100%
+    {
+         transform: rotate(360deg);
+    }
+}
+
+.main
+{
+    height: 100%;
+    background-image: url(style/sunset.jpeg);
+    
+
+}
+.search
+{
+    height: 120px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    padding-top: 4%;
+}
+.box1
+{
+    background-color: #ffffff26;
+    height: 270px;
+    width: 40%;
+    float: left;
+font-size: 12px;    
+    margin-top: 10%;
+}
+
+.box2
+{
+    background-color: #ffffff26;
+    float: right;
+    height: 270px;
+    width: 40%;
+    margin-top: 10%;
+}
+.bb1
+{
+    width: 100%;
+    height:60%;
+}
+.bb2
+{
+    width: 100%;
+    height:40%;
+}
+#temp1
+{
+     font-size: 38px;
+   padding-top: 4%;
+   padding-left: 4%;
+    color: beige;
+    float: left;
+}
+#emoji
+{ font-size: 50px;
+   padding-top: 5%;
+    float: right;
+    margin-left: 20%;
+    margin-right: 10%;
+}
+
+#sttus
+{
+    font-size: 35px;
+    padding-top: 2%;
+    padding-left: 4%;
+    color: beige;
+    float: left;
+    margin-top: 10%;
+}
+.bbox1
+{
+    font-size: 35px;
+    float: left;
+    width: 100%;
+}
+
+#area
+{
+    font-size: 26px;
+    padding-top: 4%;
+    padding-left: 3%;
+    float: left;
+    margin-right:15%;
+    
+    color: beige;
+}
+
+#day
+{
+    float: right;
+    padding-top: 4%;
+    padding-right: 3%;
+    font-size: 35px;
+    color: beige;
+}
+#date{
+    float: left;
+    font-size: 35px;
+    padding-left: 3%;
+    
+    padding-top:4% ;
+    
+    color: beige;
+}
+#time{
+    float: right;
+    font-size: 35px;
+       padding-top: 4%;
+padding-right: 3%;
+        color: beige;
+}
+.fa-sun
+{
+    font-size: 4rem;
+}
+
+
+
+footer{
+    width: 100%;
+    background-color: var(--main-bg);
+    margin-top: auto;
+}
+footer p{
+    margin:0%;
+    text-align:center ;
+    color: #fff;
+    line-height:2.5rem ;
+    font-size:1.0rem;
+
+}
+.social
+{
+ list-style: none;
+ text-align: center;
+}
+.social li
+{
+display: inline;
+padding-right: 5%;
+}
+.social i
+{
+	font-size: 2.5rem;
+    margin-top: 10px;
+  
+}
+.social i:hover
+{
+	color: #606060;
+}
+
+</style>
+</head>
+<body>
+{{>navbar}}
+
+ <div class="main">
+    <div class="search">
+      <div class="input-group rounded">
+        <input type="search" class="form-control rounded" id="cityname" placeholder="Search" aria-label="Search"
+          aria-describedby="search-addon" />
+        <span class="input-group-text border-0" id="search-addon">
+          <i class="fas fa-search"></i>
+        </span>
+      </div>
+    </div>
+    <div class="box1">
+      <div class="bbox1">
+        <h1 id="temp1">26&deg;C</h1>
+        <h1 id="emoji"><i class='fa fa-sun' style='color:#eccc68'></i></h1>
+      </div>
+      <div class="bbox2">
+        <h1 id="sttus">Clear</h1>
+      </div>
+    </div>
+    <div class="box2">
+      <div class="bb1">
+        <h1 id="area">Dehradun,IN</h1>
+        <h1 id="day">Sunday</h1>
+      </div>
+      <div class="bb2">
+        <h1 id="date">26th Mar</h1>
+        <h1 id="time">10:00AM</h1>
+      </div>
+    </div>
+  </div>
+ <footer>
+<ul class="social">
+                	<li><a href="https://www.linkedin.com/in/satyam-tomar-0873a91b0?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3Bn5VFj81XTKKBvjHmLqt8YQ%3D%3D" target="_blank"><i class="fa fa-linkedin"></i></a>
+                    </li>
+                    <li><a href="https://github.com/satyamtomar" target="_blank"><i class="fa fa-github"></i></a></li>
+                	
+                    </ul>
+</footer>
+ 
+  <script type="text/javascript" charset="utf-8">
+
+  const curdate = document.getElementById("date");
+    const curday = document.getElementById("day");
+    let curretime = document.getElementById("time");
+    
+    const getCurrentDay = () => {
+      var weekday = new Array(7);
+      weekday[0] = "Sunday";
+      weekday[1] = "Monday";
+      weekday[2] = "Tuesday";
+      weekday[3] = "Wednesday";
+      weekday[4] = "Thursday";
+      weekday[5] = "Friday";
+      weekday[6] = "Saturday";
+      let currentTime = new Date();
+
+      var day = weekday[currentTime.getDay()];
+//console.log(weekday[currentTime.getDay()]);
+      return day;
+    };
+
+    const CurrentDate = () => {
+      var months = [
+        "Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec",
+      ];
+      var curtime = new Date();
+      var month = months[curtime.getMonth() ];
+      var day = curtime.getDate();
+      var year = curtime.getFullYear();
+      return `${day} ${month} ${year}`;
+    }
+
+    const CurrentTime = () => {
+      var date = new Date();
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    var ampm = hours >= 12 ? 'pm' : 'am';
+    hours = hours % 12;
+    hours = hours ? hours : 12;
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    var strTime = hours + ':' + minutes + ' ' + ampm;
+    return `${strTime}`;
+      };
+    curday.innerHTML = getCurrentDay();
+    curdate.innerHTML = CurrentDate();
+    curretime.innerHTML = CurrentTime();
+    const searchbtn=document.getElementById("search-addon");
+   const cityname=document.getElementById("cityname");
+   const status1=document.getElementById("sttus");
+   const areaa2=document.getElementById("area");
+   let weathercondi = document.getElementById("emoji");
+    let tempstatus = "Sunny";
+
+    const temp=document.getElementById("temp1");
+    
+    const getInfo=async(event)=>{
+    let cityval=cityname.value;
+      event.preventDefault();
+     if(cityval==="")
+      alert("Enter your city name");
+     else
+     {
+       try
+       {
+       let url=`http://api.openweathermap.org/data/2.5/weather?q=${cityval}&units=metric&appid=03114e63f3fea58492410c5b0a8165e4`;
+     const response=  await fetch(url);
+     const data= await response.json();
+     const arrData=[data];
+    
+    temp.innerText=`${arrData[0].main.temp}°C`;
+       status1.innerText=arrData[0].weather[0].main;
+       areaa2.innerText=`${arrData[0].name},${arrData[0].sys.country}`;
+       tempstatus=arrData[0].weather[0].main;
+
+       if(tempstatus==="Clear")
+       {
+         emoji.innerHTML="<i class='fa fa-sun' style='color:#eccc68'></i>";
+       }
+       else if(tempstatus==="Clouds")
+       {
+         emoji.innerHTML="<i class='fa fa-cloud' style='color:#f1f2f6'></i>";
+       }
+       else if(tempstatus==="Rain")
+       {
+         emoji.innerHTML="<i class='fa fa-rain' style='color:#a4b0be'></i>";
+       }
+       else if(tempstatus==="Clear")
+       {
+         emoji.innerHTML="<i class='fa fa-cloud' style='color:#f1f2f6'></i>";
+       }
+       }
+       catch
+       {
+
+         alert("not a valid city");
+         
+       }
+     }
+    };
+    searchbtn.addEventListener("click",getInfo);
+    </script>
+
+  </body>
+
+ 
+
+</html>
